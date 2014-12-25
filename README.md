@@ -16,6 +16,8 @@ app.use(timer(function(err, req, time) {
 
 ## API
 
+TODO: describe API of the module
+
 ## License
 
 MIT
