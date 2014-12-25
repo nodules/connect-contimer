@@ -1,0 +1,31 @@
+{
+  "name": "connect-contimer",
+  "version": "0.0.1",
+  "description": "connect response timer middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nodules/connect-contimer.git"
+  },
+  "keywords": [
+    "connect",
+    "request",
+    "timer"
+  ],
+  "author": "Vladimir Varankin <nek.narqo@gmail.com> (http://github.com/narqo)",
+  "maintainers": [
+    "Varankin Vladimir <nek.narqo@gmail.com> (http://github.com/narqo)",
+    "Phillip Kovalev <twilightfeel@gmail.com> (https://github.com/kaero)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodules/connect-contimer/issues"
+  },
+  "homepage": "https://github.com/nodules/connect-contimer",
+  "dependencies": {
+    "contimer": "^1.0.1"
+  }
+}
