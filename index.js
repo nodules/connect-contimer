@@ -11,7 +11,7 @@ module.exports = function requestTimeMiddleware(cb) {
 
         function onFinish() {
             var timeObj = timer.stop(req, TIMER_LABEL);
-            cb(null, req, timeObj.time);
+            cb(timeObj.time, req);
         }
 
         function onCancel() {
@@ -20,7 +20,7 @@ module.exports = function requestTimeMiddleware(cb) {
                 .removeListener('finish', onFinish);
 
             // FIXME: what should we do here?
-            cb(null, req, 0);
+            cb(0, req);
         }
 
         next();

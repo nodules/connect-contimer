@@ -2,7 +2,7 @@ var connect = require('connect'),
     timer = require('../'),
     app = connect();
 
-function logResponseTime(err, req, time) {
+function logResponseTime(time, req) {
     console.log('Response processing time for %s took %s ms', req.url, time);
 }
 
