@@ -1,5 +1,7 @@
-connect-contimer
+connect-contimer [![NPM version][npm-image]][npm-link]
 ================
+
+[![Dependency status][deps-image]][deps-link]
 
 ## Usage
 
@@ -25,3 +27,8 @@ MIT
 ## Bugs
 
 See https://github.com/nodules/connect-contimer/issues.
+
+[npm-image]: https://img.shields.io/npm/v/connect-contimer.svg?style=flat
+[npm-link]: https://npmjs.org/package/connect-contimer
+[deps-image]: https://img.shields.io/david/nodules/connect-contimer.svg?style=flat
+[deps-link]: https://david-dm.org/nodules/connect-contimer
