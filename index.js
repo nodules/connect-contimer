@@ -3,14 +3,14 @@ var timer = require('contimer'),
 
 module.exports = function requestTimeMiddleware(cb) {
     return function(req, res, next) {
-        timer.start(req, TIMER_LABEL);
+        var timerStop = timer.start({}, TIMER_LABEL);
 
         res
             .on('finish', onFinish)
             .on('cancel', onCancel);
 
         function onFinish() {
-            var timeObj = timer.stop(req, TIMER_LABEL);
+            var timeObj = timerStop();
             cb(timeObj.time, req);
         }
 
