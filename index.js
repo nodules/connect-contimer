@@ -1,9 +1,19 @@
 var timer = require('contimer'),
     TIMER_LABEL = '__response_timer_label__';
 
-module.exports = function requestTimeMiddleware(cb) {
+/**
+ * @param {String} [label] Contimer timer label
+ * @param {Function} callback function(time: Number, req: http.IncomingMessage)
+ * @returns {Function} Middleware function(req: http.IncomingMessage, res: http.ServerResponse)
+ */
+module.exports = function requestTimeMiddleware(label, cb) {
+    if (typeof label === 'function') {
+        cb = label;
+        label = TIMER_LABEL;
+    }
+
     return function(req, res, next) {
-        var timerStop = timer.start({}, TIMER_LABEL);
+        var timerStop = timer.start({}, label);
 
         res
             .on('finish', onFinish)
