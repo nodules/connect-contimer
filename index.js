@@ -16,21 +16,29 @@ module.exports = function requestTimeMiddleware(label, cb) {
         var timerStop = timer.start({}, label);
 
         res
-            .on('finish', onFinish)
-            .on('cancel', onCancel);
+            // @see https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_event_close_1
+            .once('close', onClose)
+            // @see https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_event_finish
+            .once('finish', onFinish);
 
         function onFinish() {
+            clearEvents();
+
             var timeObj = timerStop();
             cb(timeObj.time, req);
         }
 
-        function onCancel() {
-            res
-                .removeListener('cancel', onCancel)
-                .removeListener('finish', onFinish);
+        function onClose() {
+            clearEvents();
 
             // FIXME: what should we do here?
             cb(0, req);
+        }
+
+        function clearEvents() {
+            res
+                .removeListener('close', onClose)
+                .removeListener('finish', onFinish);
         }
 
         next();
