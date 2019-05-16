@@ -3,7 +3,7 @@ var timer = require('contimer'),
 
 /**
  * @param {String} [label] Contimer timer label
- * @param {Function} callback function(time: Number, req: http.IncomingMessage)
+ * @param {Function} cb function(time: Number, req: http.IncomingMessage)
  * @returns {Function} Middleware function(req: http.IncomingMessage, res: http.ServerResponse)
  */
 module.exports = function requestTimeMiddleware(label, cb) {
