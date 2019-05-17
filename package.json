@@ -1,6 +1,6 @@
 {
   "name": "connect-contimer",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "connect response timer middleware",
   "main": "index.js",
   "scripts": {
